@@ -1,0 +1,125 @@
+.wide {
+  &.menu-collapse {
+    .slide-menu {
+      width: 55px;
+    }
+
+    span,
+    .logo {
+      display: none;
+    }
+  }
+
+  .slide-menu {
+    position: absolute;
+    box-shadow: none;
+  }
+
+  .title {
+    border-right: 1px solid #6cb3fa;
+  }
+
+  .page-content {
+    border-right: 1px solid #dcdcdc;
+    background-color: #fff;
+    padding: 0;
+  }
+}
+
+#app .slide-menu .title .is-touch {
+  background-color: #1084e4;
+}
+
+.slide-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 230px;
+  background-color: #fff;
+  z-index: 9990;
+  box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.4);
+  backface-visibility: hidden;
+  overflow-x: hidden;
+
+  .title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 44px;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #1f9aff;
+    display: flex;
+    align-items: center;
+
+    .menu {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 54px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .logo {
+      position: absolute;
+      top: 13px;
+      left: 55px;
+    }
+  }
+
+  .page-content {
+    top: 44px;
+  }
+
+  .item {
+    position: relative;
+    margin: 6px 0;
+    font-size: 16px;
+    color: #000;
+    font-weight: normal;
+    height: 40px;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    .icon {
+      position: absolute;
+      top: 10px;
+      left: 17px;
+    }
+
+    span {
+      position: absolute;
+      top: 10px;
+      left: 55px;
+
+      &.sup {
+        font-size: 14px;
+        top: 5px;
+      }
+
+      &.sub {
+        top: 24px;
+        left: 56px;
+        font-size: 10px;
+        color: gray;
+      }
+
+      &.small {
+        left: 18px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  hr {
+    margin: 0;
+    border: none;
+    border-bottom: 1px solid #f6f6f6;
+  }
+}

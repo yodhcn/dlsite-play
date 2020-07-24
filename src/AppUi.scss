@@ -1,0 +1,500 @@
+@charset "UTF-8";
+#app {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  overflow-x: visible;
+  overflow-y: hidden;
+  cursor: default;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.wide {
+  background-color: #eee;
+
+  &.menu-collapse .page {
+    left: 55px;
+  }
+
+  .page {
+    left: 230px;
+
+    &.full {
+      left: 0 !important;
+      z-index: 11000;
+    }
+  }
+
+  .page-content {
+    background-color: #eeeeee;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
+  .picker {
+    top: 50px;
+    right: 50px;
+    bottom: 50px;
+    left: 50px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  }
+}
+.lx-toast {
+  z-index: 100000;
+}
+#app .picker .page {
+  left: 0;
+}
+.picker {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 9999;
+}
+.page-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  box-sizing: border-box;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-touch-action: pan-y;
+}
+.page-bottom {
+  padding-bottom: 50px;
+}
+#app .is-touch {
+  background-color: #f1fbff;
+}
+.fade-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+  backface-visibility: hidden;
+}
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9000;
+  backface-visibility: hidden;
+}
+.wide .empty-box h2 {
+  font-size: 20px;
+}
+.empty-box {
+  padding: 80px 30px 30px 30px;
+  text-align: center;
+  color: #666;
+
+  &.content {
+    padding: 40px;
+  }
+
+  h1,
+  h2,
+  h3,
+  strong {
+    font-weight: normal;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  .button {
+    display: block;
+    margin: 12px auto;
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 17px;
+    background-color: #4195fd;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+
+    &.is-touch {
+      background-color: #1084e4 !important;
+      text-decoration: none;
+    }
+  }
+}
+
+/* *********************
+ * ナビゲーションバー
+ * ******************** */
+#app .navigation-bar .is-touch {
+  background-color: #1084e4;
+}
+.navigation-bar + .page-content {
+  top: 44px;
+}
+.navigation-bar.has-toolbar + .page-content {
+  top: 79px;
+}
+.navigation-bar.has-large-toolbar + .page-content {
+  top: 135px;
+}
+.has-mini-player > .page {
+  bottom: 60px;
+}
+.has-download-status > .page {
+  bottom: 60px;
+}
+.has-mini-player.has-download-status > .page {
+  bottom: 120px;
+}
+.wide .navigation-bar .title {
+  left: 24px;
+}
+.navigation-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-weight: bold;
+  background-color: #1f9aff;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+  z-index: 5000;
+}
+.navigation-bar.has-toolbar {
+  height: 79px;
+}
+.navigation-bar.has-large-toolbar {
+  height: 135px;
+}
+.navigation-bar.dark {
+  background-color: #222222;
+}
+.navigation-bar.photoviewer {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.navigation-bar .pointer {
+  cursor: pointer;
+}
+.navigation-bar .menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 54px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navigation-bar .title {
+  position: absolute;
+  top: 0;
+  left: 54px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+.navigation-bar .left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 44px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+.navigation-bar .left.small {
+  font-size: 13px;
+}
+.navigation-bar .left span {
+  padding: 0 4px;
+}
+.navigation-bar .right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+.navigation-bar .center {
+  position: absolute;
+  top: 0;
+  left: 110px;
+  right: 110px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navigation-bar .center.small {
+  font-size: 13px;
+}
+.navigation-bar .center.setting-title {
+  font-size: 16px;
+}
+.navigation-bar .button {
+  height: 44px;
+  padding: 0 12px;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  vertical-align: middle;
+  box-sizing: border-box;
+
+  span {
+    padding-left: 6px;
+  }
+
+  &.done {
+    background-color: #4196fd;
+    height: 30px;
+    border-radius: 5px;
+    margin: 0 8px;
+
+    &.is-touch {
+      background-color: #49adff !important;
+    }
+  }
+
+  &.delete {
+    background-color: #ff0000;
+    height: 32px;
+    border-radius: 5px;
+
+    &.is-touch {
+      background-color: #e00000 !important;
+    }
+  }
+
+  &.active {
+    background-color: #000;
+  }
+}
+
+/* *********************
+ * トランジション
+ * ******************** */
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 330ms ease;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+.delayfade-enter-active,
+.delayfade-leave-active {
+  transition: opacity 100ms ease;
+  transition-delay: 300ms;
+}
+.delayfade-enter,
+.delayfade-leave-to {
+  opacity: 0;
+}
+.modal-enter-active,
+.modal-leave-active {
+  transition: all 333ms cubic-bezier(0.4, 0, 0.22, 1);
+}
+.modal-enter,
+.modal-leave-to {
+  transform: translateY(110%);
+  opacity: 0;
+}
+.navbar-enter-active,
+.navbar-leave-active {
+  transition: transform 200ms ease;
+}
+.navbar-enter,
+.navbar-leave-to {
+  transform: translateY(-44px);
+}
+.slide-menu-enter-active,
+.slide-menu-leave-active {
+  transition: all 200ms ease;
+}
+.slide-menu-enter,
+.slide-menu-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.list-enter-active,
+.list-leave-active,
+.list-right-enter-active,
+.list-right-leave-active {
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+.list-move:not(.list-leave-active),
+.list-right-move:not(.list-right-leave-active) {
+  transition: transform 200ms ease;
+}
+.list-enter,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+.list-right-enter,
+.list-right-leave-to {
+  opacity: 0;
+  transform: translateX(50px);
+}
+.list-leave-active,
+.list-right-leave-active {
+  position: absolute !important;
+}
+.dialog-enter {
+  opacity: 0;
+}
+.dialog-leave-active {
+  opacity: 0;
+}
+.dialog-enter .dialog-container,
+.dialog-leave-active .dialog-container {
+  transform: scale(1.05);
+}
+.prompt-enter {
+  opacity: 0;
+}
+.prompt-leave-active {
+  opacity: 0;
+}
+.prompt-enter .dialog-container,
+.prompt-leave-active .dialog-container {
+  transform: translateY(100%);
+}
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  animation: rotating 2s linear infinite;
+}
+
+/**
+ * noUIslider
+ */
+.noUi-target,
+.noUi-target * {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  touch-action: none;
+  user-select: none;
+  box-sizing: border-box;
+}
+.noUi-target {
+  position: relative;
+  direction: ltr;
+}
+.noUi-base,
+.noUi-connects {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Wrapper for all connect elements.
+ */
+.noUi-connects {
+  overflow: hidden;
+  z-index: 0;
+}
+.noUi-connect,
+.noUi-origin {
+  will-change: transform;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform-origin: 0 0;
+}
+
+/* Offset direction
+ */
+html:not([dir='rtl']) .noUi-horizontal .noUi-origin {
+  left: auto;
+  right: -10px;
+}
+
+/* Give origins 0 height/width so they don't interfere with clicking the
+ * connect elements.
+ */
+.noUi-horizontal .noUi-origin {
+  height: 0;
+}
+.noUi-handle {
+  position: absolute;
+}
+.noUi-state-tap .noUi-connect,
+.noUi-state-tap .noUi-origin {
+  transition: transform 0.3s;
+}
+.noUi-state-drag * {
+  cursor: inherit !important;
+}
+
+/* Slider size and handle placement;
+ */
+.noUi-horizontal {
+  height: 18px;
+}
+.noUi-horizontal .noUi-handle {
+  width: 34px;
+  height: 28px;
+  left: -17px;
+  top: -6px;
+}
+html:not([dir='rtl']) .noUi-horizontal .noUi-handle {
+  right: -2px;
+  left: auto;
+}

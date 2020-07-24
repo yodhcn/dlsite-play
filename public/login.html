@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+  <head>
+    <!-- GTM -->
+    <script>
+      ;(function(w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-NTSRG2')
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+    <title>登录 - 登录</title>
+    <meta name="description" content="DLsite/虹GAME相关服务的登录已经可以执行。" />
+    <meta name="keywords" content="DLsite,DLsite虹GAME,登录,注册账号" />
+
+    <link rel="shortcut icon" href="/assets/login/img/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/assets/login/img/apple-touch-icon57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/login/img/apple-touch-icon72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/login/img/apple-touch-icon76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/login/img/apple-touch-icon114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/login/img/apple-touch-icon120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/login/img/apple-touch-icon144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/login/img/apple-touch-icon152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/login/img/apple-touch-icon180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/login/img/android-chrome-192x192.png" />
+
+    <link rel="stylesheet" href="https://ssl.dlsite.com/modpub/universal/css/universal.css" type="text/css" />
+    <link href="https://login.dlsite.com/assets/login/css/app_ja.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <!-- GTM --><noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NTSRG2"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe
+    ></noscript>
+
+    <!-- /エイシスグローバルヘッダ -->
+    <div class="l-container">
+      <div class="l-content">
+        <div class="l-main">
+          <section class="mainBox">
+            <div class="mainBox-head">
+              <h1 class="pageHeading">登录</h1>
+            </div>
+            <div class="mainBox-body">
+              <div class="contentBox">
+                <div class="contentBox-item">
+                  <div class="contentLogin-form">
+                    <p class="contentLogin-text">请输入登录ID与密码。</p>
+                    <form method="POST" action="https://login.dlsite.com/login">
+                      <input type="hidden" name="_token" value="6zGoPmLh79xC6urkhu73y31xrPtnEDs0kZIf7Cri" />
+                      <div class="loginInputBox">
+                        <input
+                          type="text"
+                          autocapitalize="off"
+                          style="IME-MODE: disabled"
+                          placeholder="登录ID"
+                          autofocus="autofocus"
+                          class="formItem-text"
+                          id="form_id"
+                          name="login_id"
+                          value=""
+                        />
+                      </div>
+
+                      <div class="loginInputBox">
+                        <div class="formBox-password">
+                          <input
+                            type="password"
+                            autocapitalize="off"
+                            style="IME-MODE: disabled"
+                            placeholder="密码"
+                            class="formItem-text"
+                            id="form_password"
+                            name="password"
+                            value=""
+                          />
+                          <span class="btnPasswordDisplay is-hide j-btnPasswordDisplay"></span>
+                          <!-- 初期値 is-hideで非表示。クリックでis-hideを削除してパスワードを表示する -->
+                        </div>
+                      </div>
+                      <!-- <div class="loginCheckBox"><label for="form_remember"><input type="checkbox" id="form_remember" class="formItem-check" name="remember" value="true" checked><span class="formItem-checkLavel">ログイン状態を保持する</span></label></div> -->
+                      <div class="loginBtn">
+                        <button type="submit" class="btn type-clrDefault type-sizeMd"><i>登录</i></button>
+                      </div>
+                    </form>
+                    <p class="contentLogin-link type-iconArrow">
+                      <a href="https://login.dlsite.com/password/forgot">忘记登录ID和密码时</a>
+                    </p>
+                    <p class="contentLogin-link type-iconArrow">
+                      <a href="https://login.dlsite.com/guide/help?#7">如果在重设密码过后依旧无法登录的话有可能是</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script>
+              /**
+               * AmazonPay連携
+               * @see  https://pay.amazon.com/jp/developer/documentation/
+               */
+              ;(function(f) {
+                f.init.call(f)
+              })({
+                /**
+                 * @var  出品者ID
+                 */
+                sellerId: 'A1NDHJVR17J3DL',
+                /**
+                 * @var  ウィジェットエレメントID
+                 */
+                loginElement: 'AmazonPayButton',
+                /**
+                 * Amazonライブラリ初期化
+                 */
+                init: function() {
+                  window.onAmazonLoginReady = this.loginReady.bind(this)
+                },
+                /**
+                 * Amazonログイン初期化
+                 */
+                loginReady: function() {
+                  OffAmazonPayments.Button(this.loginElement, this.sellerId, {
+                    type: 'LwA',
+                    authorization: function() {
+                      location.href = 'https://login.dlsite.com/login/amazon'
+                    }
+                  })
+                }
+              })
+            </script>
+            <script
+              async="async"
+              type="text/javascript"
+              src="https://static-fe.payments-amazon.com/OffAmazonPayments/jp/lpa/js/Widgets.js"
+            ></script>
+
+            <div class="pageBtmLink"><a href="https://www.dlsite.com/maniax/">返回DLsite</a></div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script async src="https://login.dlsite.com/assets/login/js/app.bundle.js"></script>
+    <!-- YTM -->
+    <script type="text/javascript">
+      ;(function() {
+        var tagjs = document.createElement('script')
+        var s = document.getElementsByTagName('script')[0]
+        tagjs.async = true
+        tagjs.src = '//s.yjtag.jp/tag.js#site=tDCs1vn'
+        s.parentNode.insertBefore(tagjs, s)
+      })()
+    </script>
+    <noscript
+      ><iframe
+        src="//b.yjtag.jp/iframe?c=tDCs1vn"
+        width="1"
+        height="1"
+        frameborder="0"
+        scrolling="no"
+        marginheight="0"
+        marginwidth="0"
+      ></iframe
+    ></noscript>
+  </body>
+</html>

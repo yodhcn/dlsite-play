@@ -1,0 +1,304 @@
+.tutorial-modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wide .tutorial {
+  width: 480px;
+  height: 640px;
+}
+.tutorial {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 11000;
+  box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.2);
+
+  .swipe-container,
+  .swipe-wrap,
+  .swipe-item {
+    height: 100%;
+  }
+
+  .swipe-item {
+    overflow: visible;
+    position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.item1 {
+      .logo {
+        margin: 0 auto;
+        width: 286px;
+        height: 71px;
+        background-image: url(/welcome/tutorial/logo_01.png);
+      }
+
+      .chara1 {
+        position: absolute;
+        left: 50%;
+        bottom: 20px;
+        margin-left: -160px;
+        width: 72px;
+        height: 90px;
+        background-image: url(/welcome/tutorial/pic_chara_01.png);
+      }
+
+      .chara2 {
+        position: absolute;
+        right: 50%;
+        bottom: 20px;
+        margin-right: -160px;
+        width: 79px;
+        height: 75px;
+        background-image: url(/welcome/tutorial/pic_chara_02.png);
+      }
+    }
+
+    &.item2 {
+      .device {
+        background-image: url(/welcome/tutorial/pic_sample_01.png);
+      }
+    }
+
+    &.item3 {
+      .device {
+        background-image: url(/welcome/tutorial/pic_sample_02.png);
+      }
+    }
+
+    &.item4 {
+      .device {
+        background-image: url(/welcome/tutorial/pic_sample_03.png);
+      }
+    }
+
+    &.item5 {
+      .lowerbox {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 240px;
+        padding: 0 12px;
+        box-sizing: border-box;
+      }
+
+      .content {
+        padding-bottom: 60px;
+      }
+
+      .loader {
+        padding: 15px;
+      }
+
+      .chara3 {
+        max-width: 340px;
+        height: 122px;
+        margin: 0 auto;
+        margin-top: 20px;
+        background-image: url(/welcome/tutorial/pic_chara_03.png);
+      }
+
+      .button {
+        display: inline-block;
+        background-color: #1f9aff;
+        width: 200px;
+        height: 38px;
+        margin-bottom: 30px;
+        border-radius: 3px;
+        line-height: 38px;
+        text-align: center;
+        color: #fff;
+        font-size: 17px;
+        cursor: pointer;
+
+        &.is-touch {
+          background-color: #49adff !important;
+        }
+      }
+
+      .icons {
+        display: flex;
+        justify-content: center;
+      }
+
+      .icon {
+        display: inline-block;
+        width: 80px;
+        height: 100px;
+        margin: 0 5px;
+        background-repeat: no-repeat;
+        background-size: 66px 66px;
+        background-position: top center;
+        padding-top: 70px;
+        font-size: 10px;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        &.opera {
+          background-image: url(/welcome/tutorial/icon_app_01.png);
+        }
+
+        &.dolphin {
+          background-image: url(/welcome/tutorial/icon_app_03.png);
+        }
+
+        &.uc {
+          background-image: url(/welcome/tutorial/icon_app_02.png);
+        }
+      }
+    }
+
+    h1 {
+      font-size: 18px;
+      line-height: 1.4;
+      font-weight: normal;
+    }
+
+    h2 {
+      font-size: 17px;
+      line-height: 1.4;
+      font-weight: normal;
+    }
+
+    .content {
+      padding: 0 40px;
+    }
+
+    .img {
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    .device {
+      position: absolute;
+      top: 0;
+      left: 20px;
+      right: 20px;
+      bottom: 0;
+      background-size: cover;
+      background-position: center -100px;
+    }
+  }
+
+  .textbox {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 180px;
+    padding: 16px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.4;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-sizing: border-box;
+    box-shadow: -3px 0 15px rgba(0, 0, 0, 0.3);
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .next {
+    position: absolute;
+    left: 50%;
+    margin-left: -70px;
+    bottom: 20px;
+    background-color: #1f9aff;
+    width: 140px;
+    height: 36px;
+    border-radius: 36px;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+    font-size: 17px;
+    z-index: 10;
+    cursor: pointer;
+
+    &.disable {
+      cursor: default;
+      background-color: #999;
+    }
+
+    &.is-touch {
+      background-color: #49adff !important;
+    }
+  }
+
+  .pager {
+    position: absolute;
+    left: 50%;
+    bottom: 70px;
+    margin: 0;
+    margin-left: -60px;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background-color: #cccccc;
+      border-radius: 8px;
+      margin: 0 8px;
+
+      &.active {
+        background-color: #1f9aff;
+      }
+    }
+  }
+
+  .bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &.type1 {
+      background-position: center -20%;
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 45%, rgba(255, 255, 255, 0) 60%),
+        url(/welcome/tutorial/bg_geometric_01.png),
+        radial-gradient(
+          circle at center,
+          rgba(25, 198, 255, 0) 0%,
+          rgba(25, 198, 255, 0) 20%,
+          rgba(25, 198, 255, 0.2) 100%
+        );
+    }
+
+    &.type2 {
+      background-position: center -20%;
+      background-image: url(/welcome/tutorial/bg_geometric_02.png);
+      background-color: #23c56c;
+    }
+
+    &.type3 {
+      background-position: center -20%;
+      background-image: url(/welcome/tutorial/bg_geometric_03.png);
+      background-color: #ee429c;
+    }
+
+    &.type4 {
+      background-position: center -20%;
+      background-image: url(/welcome/tutorial/bg_geometric_04.png);
+      background-color: #fa9d2d;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.filename {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.textbox {
+  margin: 0;
+  padding: 12px 12px 50px 12px;
+  font-size: 14px;
+  width: 100%;
+  min-height: 100%;
+  background-color: #fff;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  box-sizing: border-box;
+  cursor: auto;
+  user-select: initial;
+  line-height: 1.35;
+
+  .link {
+    color: #06b;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      color: #233e81;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .textbox {
+    margin: 30px auto;
+    max-width: 900px;
+    min-height: 0;
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+  }
+}

@@ -1,0 +1,327 @@
+.photo-viewer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #222;
+  z-index: 11000;
+}
+
+.setting-window {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0 !important;
+  z-index: 12000;
+}
+
+.toast {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  box-sizing: border-box;
+  z-index: 300000;
+  background-color: #333;
+  padding: 20px 18px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+.pswp__container {
+  cursor: pointer;
+}
+
+.pswp__top-bar {
+  display: none;
+}
+
+.photo-toolbar {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2001;
+}
+
+.photo-toolbar-enter-active,
+.photo-toolbar-leave-active {
+  transition: all 200ms cubic-bezier(0.4, 0, 0.22, 1);
+}
+
+.photo-toolbar-enter,
+.photo-toolbar-leave-to {
+  transform: translateY(50px);
+}
+
+.photo-page-controller {
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-top: 1px solid #d9d9d9;
+  box-sizing: border-box;
+
+  .slider-wrap {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+.photo-page-slider {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  right: 20px;
+  height: 40px;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 0;
+    right: 0;
+    height: 6px;
+    box-sizing: border-box;
+    border: 1px solid #c3c3c3;
+    background-color: #d9d9d9;
+    border-radius: 5px;
+  }
+
+  .noUi-connect {
+    background-color: #2b9cfc;
+    top: 12px;
+    right: 0;
+    height: 6px;
+    box-sizing: border-box;
+    border: 1px solid #008aff;
+    border-radius: 5px;
+  }
+
+  .noUi-handle {
+    outline: none;
+    top: -8px;
+    margin-left: -23px;
+    width: 46px;
+    height: 46px;
+    cursor: pointer;
+    z-index: 1;
+
+    ::before {
+      position: absolute;
+      content: '';
+      top: 8px;
+      left: 8px;
+      background-color: #fff;
+      border-radius: 50%;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+      width: 28px;
+      height: 28px;
+      border: 1px solid #d5d5d5;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.photo-page-count {
+  position: absolute;
+  top: 28px;
+  right: 0;
+  left: 0;
+  text-align: center;
+  font-size: 12px;
+  color: #535353;
+}
+
+.photo-preview-box {
+  position: absolute;
+  right: 0;
+  bottom: 80px;
+  left: 0;
+
+  .thumb-wrap {
+    margin: 0 auto;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #d5d5d5;
+    vertical-align: bottom;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .thumbnail {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    background-color: #d5d5d5;
+    float: left;
+  }
+}
+
+.view-controls {
+  position: absolute;
+  right: 12px;
+  bottom: 62px;
+  z-index: 1500;
+  display: flex;
+  align-items: flex-end;
+
+  button {
+    cursor: pointer;
+    border-width: 0;
+
+    &:focus {
+      outline: 0;
+    }
+
+    &.toggle-autoplay {
+      width: 48px;
+      height: 48px;
+      background-color: #1f9aff;
+      border-radius: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+
+      &.is-touch {
+        background-color: #49adff !important;
+      }
+    }
+
+    &.toggle-spread-pages {
+      display: flex;
+      justify-content: space-evenly;
+      padding: 0 11px;
+      align-items: center;
+      height: 48px;
+      min-width: 125px;
+      background: #627f95;
+      margin-right: 20px;
+      border-radius: 5px;
+      color: #fff;
+
+      svg {
+        margin-right: 11px;
+      }
+
+      &.is-touch {
+        background-color: #49adff !important;
+      }
+
+      &.on {
+        background-color: #1f9bff;
+      }
+    }
+  }
+
+  .toggle-pages-break {
+    height: 57px;
+    width: 147px;
+    font-size: 12px;
+    line-height: 16px;
+    margin-right: 14px;
+    position: relative;
+
+    .balloon {
+      background-color: #fff;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      box-shadow: -1px 1px 3px rgba(0, 0, 0, 0.2);
+
+      &::before {
+        content: '';
+        position: absolute;
+        right: -10px;
+        top: 18px;
+        display: block;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent #fff;
+      }
+
+      & > span {
+        margin-bottom: 6px;
+      }
+
+      .radio-group {
+        display: flex;
+
+        label {
+          display: flex;
+          position: relative;
+          overflow: hidden;
+
+          span {
+            width: 57px;
+            height: 22px;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #1f9bff;
+            box-sizing: border-box;
+          }
+
+          [type='radio'] {
+            appearance: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            clip: rect(0, 0, 0, 0);
+            pointer-events: none;
+            display: none;
+          }
+
+          &:checked {
+            & + span {
+              background-color: #1f9bff;
+              color: #fff;
+            }
+          }
+        }
+
+        label:nth-child(1) {
+          span {
+            border-radius: 5px 0 0 5px;
+            border-width: 1px 0 1px 1px;
+            border-color: #1f9bff;
+            border-style: solid;
+          }
+        }
+
+        label:nth-child(2) {
+          span {
+            border-radius: 0 5px 5px 0;
+            border-radius: 0 5px 5px 0;
+            border-width: 1px 1px 1px 0;
+            border-color: #1f9bff;
+            border-style: solid;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-height: 320px) {
+  .photo-preview-box {
+    bottom: 60px;
+  }
+}

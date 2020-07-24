@@ -1,0 +1,46 @@
+@charset "UTF-8";
+/**
+ * form ui等
+ */
+.control.toggle {
+  position: relative;
+
+  & > label {
+    display: block;
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 39px;
+    height: 20px;
+    border-radius: 60px;
+    background-color: #d9d9d9;
+    transition: background-color 0.2s;
+    border: solid 1px #cecece;
+
+    &::after {
+      content: '';
+      pointer-events: none;
+      transition: transform 0.2s;
+      display: block;
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 100%;
+    }
+  }
+
+  input[type='checkbox'] {
+    display: none;
+  }
+  input[type='checkbox']:checked + label {
+    background: #1f9aff;
+
+    &::after {
+      transform: translateX(20px);
+    }
+  }
+}

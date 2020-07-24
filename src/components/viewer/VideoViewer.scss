@@ -1,0 +1,70 @@
+.video-viewer .plyr,
+.plyr__video-wrapper {
+  display: flex;
+  justify-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  height: auto;
+  word-break: normal;
+  overflow: hidden;
+}
+
+.hide-control {
+  display: none;
+}
+
+#speed {
+  &.plyr__control {
+    width: 52px;
+    padding: 5px 7px 4px;
+  }
+}
+
+#speed-container {
+  &.plyr__menu__container {
+    right: -14px;
+
+    &::after {
+      right: 36px;
+    }
+  }
+}
+
+#loop {
+  #loop-icon {
+    background-image: url(~assets/svg/video-loop.svg);
+    background-size: 18px 18px;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+  }
+
+  &.plyr__control--pressed {
+    #loop-icon {
+      opacity: 1;
+    }
+  }
+
+  .plyr__tooltip {
+    padding: 5px 7.5px 3px;
+    font-size: 12px;
+  }
+
+  #loop-label {
+    opacity: 1;
+    transition: all 400ms ease;
+  }
+
+  #loop-label {
+    &.hide-loop-label {
+      opacity: 0;
+    }
+  }
+}
+
+#mute[data-plyr='mute'] {
+  display: inline-block !important;
+}
