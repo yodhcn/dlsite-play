@@ -318,13 +318,8 @@ a.button {
         </template>
       </ul>
       <footer>
-        <a
-          class="button external"
-          :href="readMoreUrl()"
-          @click="$ga.event('viewer', 'click', readMoreGaLabel)"
-          target="_blank"
-          >{{ $app.$t('related_recommend.see_more') }}</a
-        >
+        <!-- <a class="button external" :href="readMoreUrl()" @click="$ga.event('viewer', 'click', readMoreGaLabel)" target="_blank">{{ $app.$t('related_recommend.see_more') }}</a> -->
+        <a class="button external" :href="readMoreUrl()" target="_blank">{{ $app.$t('related_recommend.see_more') }}</a>
       </footer>
     </article>
   </section>
@@ -406,7 +401,7 @@ export default {
      * @param {object} product
      */
     clickRecommendLink(event, product) {
-      this.$ga.event('viewer', 'click', this.relatedType)
+      // this.$ga.event('viewer', 'click', this.relatedType)
 
       // 所持作品なら/treeに移動
       if (product.bought) {
@@ -421,7 +416,7 @@ export default {
      * @param {object} product
      */
     clickNextLink(event, product) {
-      this.$ga.event('viewer', 'click', 'next')
+      // this.$ga.event('viewer', 'click', 'next')
 
       if (product.bought) {
         event.preventDefault()

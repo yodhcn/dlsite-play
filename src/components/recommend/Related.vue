@@ -106,7 +106,7 @@ export default {
      * @param {object} product
      */
     clickRecommendLink(event, product) {
-      this.$ga.event('work', 'click', this.relatedType)
+      // this.$ga.event('work', 'click', this.relatedType)
       if (product.bought) {
         event.preventDefault()
         this.openTree(product.workno)

@@ -53,13 +53,22 @@
         <div v-if="$app.$data.isWide" class="nav-search-box" key="search-box">
           <div class="search-input">
             <svgicon class="search-icon" name="search" width="16" height="16" color="#fff"></svgicon>
-            <input
+            <!-- <input
               type="text"
               @change="updateCondition"
               @input="changeInput"
               @focus="onSearchFocus"
               @blur="onSearchBlur"
               @click="$ga.event('library', 'click', 'search')"
+              ref="search"
+              :class="{ active: isSearchFocus }"
+              :placeholder="isSearchFocus ? $t('library.searchForItemsMsg') : $t('library.searchForItems')" /> -->
+            <input
+              type="text"
+              @change="updateCondition"
+              @input="changeInput"
+              @focus="onSearchFocus"
+              @blur="onSearchBlur"
               ref="search"
               :class="{ active: isSearchFocus }"
               :placeholder="isSearchFocus ? $t('library.searchForItemsMsg') : $t('library.searchForItems')"
@@ -91,14 +100,8 @@
         </div>
 
         <!-- 並び順 -->
-        <div
-          class="button"
-          @click="
-            isShowSortBox = true
-            $ga.event('library', 'click', 'order')
-          "
-          v-touchfeedback
-        >
+        <!-- <div class="button" @click="isShowSortBox = true; $ga.event('library', 'click', 'order')" v-touchfeedback> -->
+        <div class="button" @click="isShowSortBox = true" v-touchfeedback>
           <svgicon name="sort" width="20" height="20" color="#fff"></svgicon>
         </div>
 
@@ -108,13 +111,13 @@
       <!-- 作品タイプフィルター -->
       <div class="filter-box">
         <ol>
+          <!-- <li v-for="cat in categories"
+            @click="changeFilter(cat, $event); $ga.event('library', 'click', 'wc_' + cat)"
+            :class="[cat, { active: currCategory === cat }, { filtered: (currCategory === cat && conditions.filter !== currCategory) }]" v-touchfeedback> -->
           <li
             v-for="cat in categories"
             :key="cat"
-            @click="
-              changeFilter(cat, $event)
-              $ga.event('library', 'click', 'wc_' + cat)
-            "
+            @click="changeFilter(cat, $event)"
             :class="[
               cat,
               { active: currCategory === cat },
@@ -308,7 +311,7 @@ import forEach from 'lodash/forEach'
 import values from 'lodash/values'
 import keys from 'lodash/keys'
 import debounce from 'lodash/debounce'
-import WorkType from '@/classes/work-type'
+// import WorkType from '@/classes/work-type'
 
 export default {
   name: 'Library',
@@ -460,7 +463,7 @@ export default {
       this.isShowSearchBox = !this.isShowSearchBox
 
       if (this.isShowSearchBox) {
-        this.$ga.event('library', 'click', 'search')
+        // this.$ga.event('library', 'click', 'search')
 
         this.$nextTick().then(() => {
           if (this.$refs.search) {
@@ -483,10 +486,10 @@ export default {
 
     // フィルタを変更
     selectFilter: function(workType) {
-      const gaLabel = WorkType.getGaLabel(workType)
+      /* const gaLabel = WorkType.getGaLabel(workType)
       if (gaLabel) {
         this.$ga.event('library', 'click', gaLabel)
-      }
+      } */
       this.isShowFilterBox = false
       this.updateCondition({ filter: workType })
     },
@@ -575,7 +578,7 @@ export default {
       }
 
       this.purchaseImageType = imageType
-      this.$ga.event('library', 'click', 'show_type')
+      // this.$ga.event('library', 'click', 'show_type')
 
       if (this.$refs.infinite && this.$refs.infinite[0]) {
         this.$nextTick().then(() => {

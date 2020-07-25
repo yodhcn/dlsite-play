@@ -120,13 +120,8 @@
   <div v-if="$route.name === 'library' && items.length > 0 && enable" class="recommend">
     <header>
       <span v-t="'recommend_you.work'"></span>
-      <span
-        class="link-settings"
-        @click="
-          $router.push('/settings')
-          $ga.event('library', 'click', 'recommend_settings')
-        "
-      >
+      <!-- <span class="link-settings" @click="$router.push('/settings'); $ga.event('library', 'click', 'recommend_settings')"> -->
+      <span class="link-settings" @click="$router.push('/settings')">
         <span v-t="'recommend_you.setting'"></span><svgicon name="link-arrow"></svgicon>
       </span>
     </header>
@@ -134,15 +129,10 @@
     <div class="grid">
       <template v-for="item in items">
         <div :key="item.workon" class="item" :class="width > 600 ? (width > 1000 ? 'five' : 'four') : 'three'">
-          <a
-            :href="workUrl(item)"
-            @click="
-              sendSilverEgg(item.workno, cref)
-              $ga.event('library', 'click', 'recommend_products')
-            "
-            target="_blank"
-            v-touchfeedback
-          >
+          <!-- <a :href="workUrl(item)"
+             @click="sendSilverEgg(item.workno, cref); $ga.event('library', 'click', 'recommend_products')"
+             target="_blank" v-touchfeedback> -->
+          <a :href="workUrl(item)" @click="sendSilverEgg(item.workno, cref)" target="_blank" v-touchfeedback>
             <div class="thumb" :style="`background-image: url(${item.work_files.main})`">
               <span class="external">
                 <span class="bg"></span>

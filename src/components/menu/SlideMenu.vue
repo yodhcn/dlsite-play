@@ -59,26 +59,14 @@
           <svgicon class="icon" name="help" width="20" height="20" color="#525252"></svgicon
           ><span>{{ $t('slide_menu.help') }}</span>
         </div>
-        <div
-          class="item"
-          @click="
-            goDLsite()
-            $ga.event('side_menu', 'click', 'dlsite')
-          "
-          v-touchfeedback
-        >
+        <!-- <div class="item" @click="goDLsite(); $ga.event('side_menu', 'click', 'dlsite')" v-touchfeedback> -->
+        <div class="item" @click="goDLsite()" v-touchfeedback>
           <svgicon class="icon" name="prev" width="20" height="20" color="#525252"></svgicon
           ><span>{{ $t('slide_menu.dlsite') }}</span>
         </div>
         <!-- <div class="item" @click="goPage('feedback')" v-touchfeedback><svgicon class="icon" name="feedback" width="20" height="20" color="#525252"></svgicon><span>フィードバック</span></div> -->
-        <div
-          class="item"
-          @click="
-            logout()
-            $ga.event('side_menu', 'click', 'logout')
-          "
-          v-touchfeedback
-        >
+        <!-- <div class="item" @click="logout(); $ga.event('side_menu', 'click', 'logout')" v-touchfeedback> -->
+        <div class="item" @click="logout()" v-touchfeedback>
           <svgicon class="icon" name="account" width="20" height="20" color="#525252"></svgicon>
           <span class="sup">{{ $t('slide_menu.logout') }}</span>
           <span class="sub">{{ account.login_id ? account.login_id : account.production_id }}</span>
@@ -109,7 +97,7 @@ export default {
 
   methods: {
     goPage(name) {
-      this.$ga.event('side_menu', 'click', name)
+      // this.$ga.event('side_menu', 'click', name)
 
       this.$emit('close')
       this.$nextTick().then(() => {
@@ -137,7 +125,7 @@ export default {
       this.syncState = 'syncing'
       clearTimeout(syncStateTimer)
 
-      this.$ga.event('side_menu', 'click', 'sync')
+      // this.$ga.event('side_menu', 'click', 'sync')
 
       this.$store.dispatch('purchase/syncWork', true).then(() => {
         this.syncState = 'synced'

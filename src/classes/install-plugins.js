@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import VueAnalytics from 'vue-analytics'
+// import VueAnalytics from 'vue-analytics'
 import AsyncComputed from 'vue-async-computed'
 import ZyDialog from 'vue-zydialog'
 import VueTouchFeedback from 'vue-touchfeedback'
@@ -28,11 +28,11 @@ Vue.use(VueScrollBehavior, { router })
 Vue.use(svgicon, { tagName: 'svgicon' })
 Vue.use(AsyncComputed)
 
-// Google Analytics（devも無いと死ぬ）
+/* // Google Analytics（devも無いと死ぬ）
 Vue.use(VueAnalytics, {
   id: 'UA-22723883-9',
   router
-})
+}) */
 
 // Vue filter
 Vue.filter('basename', function(val) {

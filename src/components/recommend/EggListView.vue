@@ -46,27 +46,18 @@
   <div v-if="$route.name === 'library' && items.length > 0 && enable" class="recommend">
     <header>
       <span v-t="'recommend_you.work'"></span>
-      <span
-        class="link-settings"
-        @click="
-          $router.push('/settings')
-          $ga.event('library', 'click', 'recommend_settings')
-        "
-      >
+      <!-- <span class="link-settings" @click="$router.push('/settings'); $ga.event('library', 'click', 'recommend_settings')"> -->
+      <span class="link-settings" @click="$router.push('/settings')">
         <span v-t="'recommend_you.setting'"></span><svgicon name="link-arrow"></svgicon>
       </span>
     </header>
 
     <ul class="works">
       <li class="item" v-for="item in items" :key="item.workno" v-touchfeedback>
-        <a
-          :href="workUrl(item)"
-          @click="
-            sendSilverEgg(item.workno, cref)
-            $ga.event('library', 'click', 'recommend_products')
-          "
-          target="_blank"
-        >
+        <!-- <a :href="workUrl(item)"
+           @click="sendSilverEgg(item.workno, cref); $ga.event('library', 'click', 'recommend_products')"
+           target="_blank"> -->
+        <a :href="workUrl(item)" @click="sendSilverEgg(item.workno, cref)" target="_blank">
           <span class="thumbnail" :style="`background-image: url('${item.work_files.sam}')`"></span>
           <div class="spec">
             <span class="work-name">{{ item.work_name }}</span>
