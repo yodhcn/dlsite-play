@@ -176,6 +176,11 @@ export default {
 
   methods: {
     search: function(keyword) {
+      const res = keyword.match(/\((.+?)\)/)
+      if (res) {
+        keyword = keyword.replace(res[0], '|' + res[1])
+      }
+
       this.$store.dispatch('purchase/updateCondition', {
         filter: 'all',
         search: keyword

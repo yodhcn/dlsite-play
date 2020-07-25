@@ -45,7 +45,11 @@ export default {
 
     // キーワードフィルタ (关键字过滤器)
     if (conditions.search !== '') {
-      where.push(db.table.purchase.search.match(new RegExp(this.kana2hiragana(conditions.search), 'ig')))
+      try {
+        where.push(db.table.purchase.search.match(new RegExp(this.kana2hiragana(conditions.search), 'ig')))
+      } catch (e) {
+        //
+      }
     }
 
     // isPlayWorkフィルタ (isPlayWork过滤器)
