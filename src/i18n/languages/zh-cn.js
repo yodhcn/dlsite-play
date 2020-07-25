@@ -76,7 +76,7 @@ const message = {
     work_empty_msg: '显示已在DLsite购买的作品',
     hidden_not_playwork: '（设定为不显示无法对应浏览器的作品）',
     no_hit: '无结果',
-    clear_condition: '清楚搜索条件',
+    clear_condition: '清除搜索条件',
     change_sort_type: '变更排列顺序',
     filter_category: '详细设定作品类别',
     search_result: '搜索结果',
