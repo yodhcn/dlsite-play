@@ -2,6 +2,7 @@ import forEach from 'lodash/forEach'
 import cloneDeep from 'lodash/cloneDeep'
 import isEmpty from 'lodash/isEmpty'
 import differenceBy from 'lodash/differenceBy'
+import escapeRegExp from 'lodash/escapeRegExp'
 import api from '@/store/api'
 import db from '@/store/database'
 import cat from '@/store/categories'
@@ -45,11 +46,7 @@ export default {
 
     // キーワードフィルタ (关键字过滤器)
     if (conditions.search !== '') {
-      try {
-        where.push(db.table.purchase.search.match(new RegExp(this.kana2hiragana(conditions.search), 'ig')))
-      } catch (e) {
-        //
-      }
+      where.push(db.table.purchase.search.match(new RegExp(escapeRegExp(this.kana2hiragana(conditions.search)), 'ig')))
     }
 
     // isPlayWorkフィルタ (isPlayWork过滤器)
