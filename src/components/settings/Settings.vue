@@ -4,7 +4,7 @@
   <div class="page">
     <header class="navigation-bar" :class="{ dark: section }">
       <div v-if="!$app.$data.isWide && !section" class="menu" @click="$app.$data.isShowMenu = true" v-touchfeedback>
-        <svgicon name="hamburger-menu" width="20" height="20" color="#fff"></svgicon>
+        <svgicon name="hamburger-menu" width="20" height="20" color="#fff" />
       </div>
 
       <div v-if="!section" class="title">{{ $t('setting.setting') }}</div>
@@ -20,6 +20,19 @@
     </header>
 
     <div class="page-content page-bottom scroll">
+      <!-- Language -->
+      <section v-if="!section">
+        <div class="header">{{ $t('setting.language') }}</div>
+        <ol>
+          <li @click="isShowLanguage = true" class="pointer" v-touchfeedback>
+            <span>Language</span>
+            <div class="right">
+              <span>{{ loc2lang(locale) }}</span>
+            </div>
+          </li>
+        </ol>
+      </section>
+
       <!-- 画像ビューア -->
       <section v-if="!section || section === 'photo-viewer'">
         <div class="header">{{ $t('setting.image_viewer') }}</div>
@@ -29,7 +42,7 @@
             <div class="right">
               <div class="pf-toggle">
                 <input v-model="photoFrontSingle" type="checkbox" id="photoFrontSingle" name="photoFrontSingle" />
-                <label for="photoFrontSingle"></label>
+                <label for="photoFrontSingle" />
               </div>
             </div>
           </li>
@@ -39,7 +52,7 @@
             <div class="right">
               <div class="pf-toggle">
                 <input v-model="photoSpreadView" id="photoSpreadView" type="checkbox" name="photoSpreadView" />
-                <label for="photoSpreadView"></label>
+                <label for="photoSpreadView" />
               </div>
             </div>
           </li>
@@ -49,7 +62,7 @@
             <div class="right">
               <div class="pf-toggle">
                 <input v-model="photoMoveAnimation" id="photoMoveAnimation" type="checkbox" name="photoMoveAnimation" />
-                <label for="photoMoveAnimation"></label>
+                <label for="photoMoveAnimation" />
               </div>
             </div>
           </li>
@@ -85,12 +98,12 @@
             <div class="right">
               <div class="pf-toggle">
                 <input v-model="hideenNotPlayWork" id="hideenNotPlayWork" type="checkbox" name="hideenNotPlayWork" />
-                <label for="hideenNotPlayWork"></label>
+                <label for="hideenNotPlayWork" />
               </div>
             </div>
           </li>
-          <li v-if="$app.locale === 'ja'">
-            <span v-t="'setting.hidden_recommend'"></span>
+          <li>
+            <span>{{ $t('setting.hidden_recommend') }}</span>
             <div class="right">
               <div class="pf-toggle">
                 <input
@@ -99,7 +112,7 @@
                   type="checkbox"
                   name="hideRecommendations"
                 />
-                <label for="hideRecommendations"></label>
+                <label for="hideRecommendations" />
               </div>
             </div>
           </li>
@@ -126,7 +139,7 @@
                   type="checkbox"
                   name="workImageThumbCahce"
                 />
-                <label for="workImageThumbCahce"></label>
+                <label for="workImageThumbCahce" />
               </div>
             </div>
           </li>
@@ -135,20 +148,24 @@
       </section>
     </div>
 
+    <!-- Language -->
+    <dialog-box type="dialog" v-if="isShowLanguage" @close="isShowLanguage = false">
+      <h3 slot="header">{{ $t('setting.language') }}</h3>
+      <ol slot="body">
+        <li v-for="loc in locales" @click="setLocale(loc)" :key="loc" v-touchfeedback>
+          <span>{{ loc2lang(loc) }}</span>
+          <svgicon v-if="loc === locale" class="checked" name="check" width="20" height="20" color="#1f9aff" />
+        </li>
+      </ol>
+    </dialog-box>
+
     <!-- オートプレイメニュー -->
     <dialog-box type="dialog" v-if="isShowPhotoAutoNextTime" @close="isShowPhotoAutoNextTime = false">
       <h3 slot="header">{{ $t('setting.autoplay_delay') }}</h3>
       <ol slot="body">
         <li v-for="i in 30" @click="setPhotoAutoNextTime(i)" :key="i" v-touchfeedback>
           <span>{{ $t('setting.second', { sec: i }) }}</span>
-          <svgicon
-            v-if="i === photoAutoNextTime"
-            class="checked"
-            name="check"
-            width="20"
-            height="20"
-            color="#1f9aff"
-          ></svgicon>
+          <svgicon v-if="i === photoAutoNextTime" class="checked" name="check" width="20" height="20" color="#1f9aff" />
         </li>
       </ol>
     </dialog-box>
@@ -159,14 +176,7 @@
       <ol slot="body">
         <li v-for="i in [10, 20, 30, 60]" @click="setAudioSeekTime(i)" :key="i" v-touchfeedback>
           <span>{{ $t('setting.second', { sec: i }) }}</span>
-          <svgicon
-            v-if="i === audioSeekTime"
-            class="checked"
-            name="check"
-            width="20"
-            height="20"
-            color="#1f9aff"
-          ></svgicon>
+          <svgicon v-if="i === audioSeekTime" class="checked" name="check" width="20" height="20" color="#1f9aff" />
         </li>
       </ol>
     </dialog-box>
@@ -175,6 +185,7 @@
 
 <script>
 import DialogBox from 'components/DialogBox.vue'
+import Storage from '@/utils/storage'
 
 export default {
   name: 'settings',
@@ -183,12 +194,24 @@ export default {
 
   data() {
     return {
+      isShowLanguage: false,
       isShowPhotoAutoNextTime: false,
-      isShowAudioSeekTime: false
+      isShowAudioSeekTime: false,
+      locales: ['en', 'ja', 'zh-cn', 'zh-tw']
     }
   },
 
   computed: {
+    locale: {
+      get() {
+        return this.$i18n.locale
+      },
+      set(val) {
+        this.$i18n.locale = val
+        Storage.setItem('locale', val)
+      }
+    },
+
     photoFrontSingle: {
       get() {
         return this.$store.state.play.config.photoFrontSingle
@@ -263,6 +286,11 @@ export default {
   },
 
   methods: {
+    setLocale(locale) {
+      this.locale = locale
+      this.isShowLanguage = false
+    },
+
     setPhotoAutoNextTime: function(sec) {
       this.photoAutoNextTime = sec
       this.isShowPhotoAutoNextTime = false
@@ -279,6 +307,17 @@ export default {
           window.location.replace('/clear.html')
         }
       })
+    },
+
+    loc2lang(loc) {
+      const langs = {
+        en: 'English',
+        ja: '日本語',
+        'zh-cn': '简体中文',
+        'zh-tw': '繁體中文'
+      }
+
+      return langs[loc]
     }
   },
 

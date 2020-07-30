@@ -197,6 +197,7 @@ const message = {
 
   setting: {
     setting: '設定',
+    language: '語言',
     image_viewer_setting: '設定圖片閱覽器',
     image_viewer: '圖片閱覽器',
     toggle_page_break: '切換跨頁',

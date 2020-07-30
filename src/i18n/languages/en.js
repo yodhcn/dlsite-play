@@ -202,6 +202,7 @@ const message = {
 
   setting: {
     setting: 'Settings',
+    language: 'Language',
     image_viewer_setting: 'Image Viewer Settings',
     image_viewer: 'Image Viewer',
     toggle_page_break: 'Toggle spread-page view',

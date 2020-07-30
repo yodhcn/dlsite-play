@@ -201,6 +201,7 @@ const message = {
 
   setting: {
     setting: '設定',
+    language: '言語',
     image_viewer_setting: '画像ビューア設定',
     image_viewer: '画像ビューア',
     toggle_page_break: '見開きページの切り替え',
