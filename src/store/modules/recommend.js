@@ -32,8 +32,7 @@ export default {
     },
     // 次巻
     getNextVolume: state => workno => {
-      // eslint-disable-next-line no-prototype-builtins
-      if (!state.forProduct.hasOwnProperty(workno)) {
+      if (!Object.prototype.hasOwnProperty.call(state.forProduct, workno)) {
         return null
       }
 
