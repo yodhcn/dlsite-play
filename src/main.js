@@ -1,4 +1,4 @@
-import '@/classes/sentry'
+// import '@/classes/sentry'
 import 'normalize.css/normalize.css'
 import 'custom-event-polyfill'
 import Vue from 'vue'

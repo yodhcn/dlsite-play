@@ -336,7 +336,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import * as Sentry from '@sentry/browser'
+// import * as Sentry from '@sentry/browser'
 import FileFormat from '@/classes/file-format'
 import Loader from 'components/Loader.vue'
 import WorkInfo from 'components/library/work/Info.vue'
@@ -537,9 +537,9 @@ export default {
           if (!playfile[playfile.type]) {
             this.$alert(this.$t('library.corrupted_file'))
 
-            Sentry.configureScope(scope => {
-              scope.setExtra('workno', this.workno)
-            })
+            // Sentry.configureScope(scope => {
+            //   scope.setExtra('workno', this.workno)
+            // })
 
             throw new Error('The file is corrupted')
           }

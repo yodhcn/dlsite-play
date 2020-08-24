@@ -7,7 +7,7 @@ import api from '@/store/api'
 import db from '@/store/database'
 import cat from '@/store/categories'
 import store from '@/store/index'
-import * as Sentry from '@sentry/browser'
+// import * as Sentry from '@sentry/browser'
 
 export default {
   /**
@@ -329,10 +329,10 @@ export default {
           // 通信エラー (通信错误)
           if (error.response) {
             if (error.response.status !== 401) {
-              Sentry.withScope(scope => {
+              /* Sentry.withScope(scope => {
                 scope.setLevel(Sentry.Severity.Info)
                 Sentry.captureException(error)
-              })
+              }) */
             }
           } else {
             return Promise.reject(error)

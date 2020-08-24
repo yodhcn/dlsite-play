@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import * as Sentry from '@sentry/browser'
+// import * as Sentry from '@sentry/browser'
 import * as types from '@/store/mutation-types'
 import db from '@/store/database'
 import api from '@/store/api'
 import cloneDeep from 'lodash/cloneDeep'
 import forEach from 'lodash/forEach'
-import i18n from '@/i18n'
+// import i18n from '@/i18n'
 import Storage from '@/utils/storage'
 
 // initial state
@@ -49,7 +49,7 @@ const actions = {
   initialize({ state, commit, dispatch }) {
     return dispatch('getAuthorize')
       .then(() => {
-        Sentry.configureScope(scope => {
+        /* Sentry.configureScope(scope => {
           scope.setUser({
             id: state.account.customer_id,
             login_id: state.account.login_id,
@@ -69,7 +69,7 @@ const actions = {
                 (navigator.languages && navigator.languages[0]) || navigator.language || navigator.browserLanguage
             }
           })
-        })
+        }) */
 
         return db.connect(state.account)
       })
@@ -89,13 +89,13 @@ const actions = {
         config.supportBlob = db.supportBlob
         config.isPrivateMode = db.isPrivateMode
 
-        Sentry.configureScope(scope => {
+        /* Sentry.configureScope(scope => {
           scope.setExtra('DB', {
             privateMode: db.isPrivateMode,
             supportIndexedDB: db.supportIndexedDb,
             supportBlob: db.supportBlob
           })
-        })
+        }) */
 
         // global config
         commit(types.RECEIVE_CONFIG, config)
