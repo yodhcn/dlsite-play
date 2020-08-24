@@ -24,7 +24,7 @@ Vue.config.productionTip = debug
 Vue.use(ZyDialog, { lbLabel: i18n.t('confirm_dialog.cancel'), rbLabel: i18n.t('confirm_dialog.ok') })
 Vue.use(VueTouchFeedback)
 Vue.use(VSwipe)
-Vue.use(VueScrollBehavior, { router })
+Vue.use(VueScrollBehavior, { router, el: '.scroll' })
 Vue.use(svgicon, { tagName: 'svgicon' })
 Vue.use(AsyncComputed)
 
