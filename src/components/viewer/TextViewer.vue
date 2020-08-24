@@ -49,13 +49,14 @@ export default {
       })
       .then(res => {
         // URLをリンク化
-        this.text = anchorme(trim(res.data), {
-          attributes: [
-            {
-              name: 'target',
-              value: '_blank'
+        // 检测文本中的链接/URL/电子邮箱, 并将其转换为可点击的HTML超链接
+        this.text = anchorme({
+          input: trim(res.data),
+          options: {
+            attributes: {
+              target: '_blank'
             }
-          ]
+          }
         })
       })
   },
