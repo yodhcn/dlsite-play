@@ -292,7 +292,7 @@ const message = {
   ignore: {
     label_switch: '显示于媒体库',
     baloon_switch:
-      '设定为不显示的作品可从ˊ[<a href="#/settings">设定</a>] > [<a href="#/settings/ignore">不显示的作品列表</a >]确认。',
+      '设定为不显示的作品可从 [<a href="#/settings">设定</a>] > [<a href="#/settings/ignore">不显示的作品列表</a >]确认。',
     title: '不显示的作品列表',
     confirm: '确认',
     visible_button: '显示于媒体库',
