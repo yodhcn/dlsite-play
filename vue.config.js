@@ -2,8 +2,10 @@ const path = require('path')
 const HttpsProxyAgent = require('https-proxy-agent')
 const zlib = require('zlib')
 
-// http 或 https 代理
-const PROXY = 'http://127.0.0.1:10809'
+// http 或 https 代理 https://github.com/TooTallNate/node-https-proxy-agent#readme
+const PROXY = null
+// 登录 DLsite 后, 网站 Cookie 中的 __DLsite_SID
+const SID = '**************************'
 
 const resolve = dir => path.join(__dirname, dir)
 
@@ -68,7 +70,10 @@ module.exports = {
     proxy: {
       '/api': {
         target: 'https://play.dlsite.com',
-        agent: new HttpsProxyAgent(PROXY),
+        agent: PROXY ? new HttpsProxyAgent(PROXY) : null,
+        headers: {
+          cookie: `__DLsite_SID=${SID};`
+        },
         onProxyRes: (proxyRes, req, res) => {
           const oriWriteHead = res.writeHead
           const oriWrite = res.write
