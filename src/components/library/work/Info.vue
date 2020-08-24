@@ -33,10 +33,11 @@
 
         <div v-if="meta.author_name" class="author-name">{{ meta.author_name }}</div>
 
-        <a v-if="meta.maker_id" :href="makerUrl(meta)" target="_blank" class="maker-name" v-touchfeedback>{{
-          meta.maker_name
-        }}</a>
-        <div v-else class="maker-name">{{ meta.maker_name }}</div>
+        <!-- <a v-if="meta.maker_id" :href="makerUrl(meta)" target="_blank" class="maker-name" v-touchfeedback>{{ meta.maker_name }}</a>
+        <div v-else class="maker-name">{{ meta.maker_name }}</div> -->
+        <div @click="search(meta.maker_id || meta.maker_name)" class="maker-name" v-touchfeedback>
+          {{ meta.maker_name }}
+        </div>
 
         <template v-if="creators.length > 0">
           <div v-for="creator in creators" :key="creator.id" class="link_cien">
