@@ -128,8 +128,8 @@ module.exports = {
     config.module
       .rule('LICENSE')
       .test(/LICEN(S|C)E(\.md)?$/i)
-      .use('html-loader')
-      .loader('html-loader')
+      .use('raw-loader')
+      .loader('raw-loader')
       .end()
 
     // 替换一个规则里的 Loader
